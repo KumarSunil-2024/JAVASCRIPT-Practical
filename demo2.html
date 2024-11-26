@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <script>
+        function DeleteClick(){
+           flag= confirm("Are you sure,Record will be deleted");
+           if(flag==true){
+         //   alert("Record Deleted...");
+          //  console.error("Deleted..");
+        //  document.querySelector("h3").innerText="Record Deleted";
+        //  document.querySelector("container").innerHTML="<font color='red'>Record Deleted</font>";
+         //   document.getElementById("container").innerHTML="<font color='red'>Record Deleted</font>";
+         document.getElementById("container").outerHTML="<font color='red'>Record Deleted</font>";
+         document.querySelector(".msg").innerHTML="Ok button clik and Record Deleted";
+           }else{
+            alert("canceled..");
+           }
+        }
+    </script>
+</head>
+<body>
+    <button onclick="DeleteClick()">Delete</button>
+    <p id="container"></p>
+    <div class="msg"></div>
+</body>
+</html>

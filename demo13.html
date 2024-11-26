@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Array Manipulation</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="../node_modules/bootstrap-icons/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link
+      href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <script>
+        var Categories=["All","Electronics","Footwear"];
+        function LoadCategories(){
+            Categories.sort();
+            document.getElementById("lstcategories").innerHTML="";
+            for(var category of Categories){
+                var option=document.createElement("option");
+                option.text=category;
+                option.value=category;
+                document.getElementById("lstcategories").appendChild(option);
+            }
+        }
+        function bodyload(){
+            LoadCategories(); 
+        }
+        function AddClick(){
+            var categoryName=document.getElementById("txtCategory").value;
+           if(Categories.indexOf(categoryName)==-1){
+            Categories.push(categoryName);
+            LoadCategories();
+            alert(`${categoryName} Added to List`)
+            document.getElementById("txtCategory").value="";
+           }else{
+            alert(`${categoryName} Exits`);
+            document.getElementById("txtCategory").value="";
+           }
+        }
+        function RemoveClick(){
+             var categoryName=document.getElementById("lstcategories").value;
+             var categoryIndex=Categories.indexOf(categoryName);
+             var flag=confirm(`Are you sure\nWant to Delete ${categoryName}`);
+             if(flag==true){
+                Categories.splice(categoryIndex,1);
+                LoadCategories();
+             }
+        }
+    </script>
+  </head>
+  <body class="container-fluid" onload="bodyload()">
+    <h2>Array Manipulation</h2>
+    <div class="row">
+      <div class="col-4">
+        <div class="mb-3">
+          <label>Add New Category</label>
+          <div class="input-group">
+            <input type="text" id="txtCategory" class="form-control" />
+            <button onclick="AddClick()" class="btn btn-primary">Add</button>
+          </div>
+        </div>
+        <div class="mt-2">
+          <label>Categories List</label>
+          <div>
+            <select id="lstcategories" size="3" class="form form-select">
+
+            </select>
+          </div>
+          <div class="mt-3">
+            <button onclick="RemoveClick()" class="btn btn-danger w-100">
+              <span class="bi bi-trash-fill"></span>
+              Remove Category
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<!--
+Reading Elements from Array
+Adding Elements into Array
+Removing Elements from Array
+Searc ing For Element in Array
+- find()
+- filter()
+- indexOf()
+- lastlhdexOf()
+Sort Array Elements
+- sort()
+— reverse ( )
+
+
+<script>
+var cities = ["Delhi","Bangalore","Chennai","Mumbai","Goa"];
+cities.sort();
+cities.
+for(var item of cities)
+document.write(item + "<br>");
+</scri t>
+
+
+ <script>
+      var tv = {
+        "Name": "Samsung TV",
+        "Price": 45000.44
+      };
+
+      var shoe = {
+        "Name": "Nike Casuals",
+        "Price": 6000.44
+      };
+
+      document.write("Shoe Price: " + shoe.Price);
+
+
+       <script>
+      // Creating a product object with initial values
+      var product = {
+        "Name": "",
+        "Price": 0,
+        "Stock": false
+      };
+
+      // Prompting the user for product details
+      product.Name = prompt("Enter Product Name");
+      product.Price = parseFloat(prompt("Enter Product Price"));
+      product.Stock = (prompt("Is the product in stock? (true/false)") === "true");
+
+      // Displaying the product details
+      document.write("Product Name: " + product.Name + "<br>");
+      document.write("Product Price: " + product.Price + "<br>");
+      document.write("Product In Stock: " + (product.Stock ? "Yes" : "No"));
+
+-->

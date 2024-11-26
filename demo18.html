@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Object Demo</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script>
+        var products = []; // Array to hold products
+
+        function LoadProduct() {
+            var tbody = document.querySelector("tbody");
+            tbody.innerHTML = ""; // Clear existing rows before loading new ones
+            for (var item of products) {
+                var tr = document.createElement("tr");
+                var tdName = document.createElement("td");
+                var tdPrice = document.createElement("td");
+                var tdDelete=document.createElement("td");
+
+                tdName.innerHTML = item.Name;
+                tdPrice.innerHTML = item.Price;
+                tdDelete.innerHTML=`
+                <button class="btn btn-danger" onclick="DeleteClick()">
+                    <span class="bi bi-trash-fill"></span>
+                </button>
+                `;
+
+                tr.appendChild(tdName);
+                tr.appendChild(tdPrice);
+                tr.appendChild(tdDelete);
+                tbody.appendChild(tr);
+            }
+        }
+
+        function AddClick() {
+            var product = { // Create new product object
+                Name: document.getElementById("txtName").value,
+                Price: parseFloat(document.getElementById("txtPrice").value)
+            };
+
+            // Add new product to the products array
+            products.push(product);
+
+            alert("Product Added");
+
+            // Reload product list
+            LoadProduct();
+
+            // Clear the input fields
+            document.getElementById("txtName").value = "";
+            document.getElementById("txtPrice").value = "";
+        }
+        function DeleteClick(){
+            alert('clicked');
+        }
+    </script>
+  </head>
+  <body class="container-fluid">
+     <h2>Add New Product</h2>
+     <dl>
+        <dt>Name</dt>
+        <dd><input type="text" id="txtName"></dd>
+        <dt>Price</dt>
+        <dd><input type="text" id="txtPrice"></dd>
+     </dl>
+     <button class="btn btn-primary" onclick="AddClick()">Add Product</button>
+     <hr>
+     <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Products will be dynamically added here -->
+        </tbody>
+     </table>
+  </body>
+</html>

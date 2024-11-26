@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Dynamic Element</title>
+    <script>
+        function CreateClick(){
+            var pic=document.createElement("img");
+            pic.width="100";
+            pic.height="100";
+            pic.border="2";
+            pic.src="../img5.jpg";
+            document.querySelector("div").appendChild(pic);
+        }
+    </script>
+</head>
+<body>
+    <button onclick="CreateClick()">Create Image</button>
+    <div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Product Details</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="container-fluid">
+    <h2>Product Details</h2>
+    <button onclick="LoadClick()" class="btn btn-primary mb-3">Load Data</button>
+
+    <div>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Photo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Product rows will be inserted here -->
+        </tbody>
+      </table>
+    </div>
+
+    <script>
+      var products = [
+        { Name: "Samsung TV", Price: 56000.44, Photo: "/public/assets/tv.jpg" },
+        { Name: "Nike Casuals", Price: 6000.44, Photo: "/public/assets/shoe.jpg" },
+        { Name: "Lee Boot", Price: 3400.44, Photo: "/public/assets/boot.jpg" },
+        { Name: "Winter Jacket", Price: 5000.44, Photo: "/public/assets/jacket.jpg" }
+      ];
+
+      function LoadClick() {
+        var tbody = document.querySelector("tbody");
+        tbody.innerHTML = ""; // Clear existing rows
+        for (var product of products) {
+          var tr = document.createElement("tr");
+
+          var tdName = document.createElement("td");
+          tdName.innerHTML = product.Name;
+
+          var tdPrice = document.createElement("td");
+          tdPrice.innerHTML = product.Price;
+
+          var tdPhoto = document.createElement("td");
+          tdPhoto.innerHTML = `<img src="${product.Photo}" alt="${product.Name}" width="50">`;
+
+          tr.appendChild(tdName);
+          tr.appendChild(tdPrice);
+          tr.appendChild(tdPhoto);
+          tbody.appendChild(tr);
+        }
+      }
+    </script>
+  </body>
+</html>

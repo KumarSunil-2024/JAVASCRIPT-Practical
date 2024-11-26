@@ -1,0 +1,79 @@
+<!--
+<script>
+    var userDetails="john-62057,David-96080";
+    var [john,david]=userDetails.split(',');
+    document.write(david);
+</script>
+-->
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Trim</title>
+    <script>
+        function VerfiyUser(){
+            var userId=document.getElementById("txtUserId").value;
+            if(userId.trim()=="sunil"){
+                document.write("User Verified");
+            }else{
+                document.querySelector("div").innerHTML="Invalid User Id";
+            }
+        }
+    </script>
+</head>
+<body>
+    User Id:
+    <input type="text" id="txtUserId" onblur="VerfiyUser()">
+    <div></div>
+</body>
+</html>
+-->
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    // <script> 
+    //     function VerifyCard(){
+    //        var cardNumber=document.getElementById("txtCard").value;
+    //        var pic=document.getElementById("pic");
+    //        if(cardNumber.startsWith("4444")){
+    //         pic.src="../img1.jpg";
+    //        }else if(cardNumber.startsWith("5555")){
+    //         pic.src="../img2.jpg";
+    //        }else{
+    //         pic.src="";
+    //         pic.alt="Invalid";
+    //        } 
+    //     }
+    //     function VerifySkype(){
+    //         var skype=document.getElementById("txtSkype").value;
+    //         var msg=document.getElementById("msg");
+    //         if(skype.endsWith("outlook.com")){
+    //             msg.innerHTML="";
+    //         }else{
+    //             msg.innerHTML="Skype Address must have outlook domain";
+    //             msg.className="text-danger";
+    //         }
+    //     }
+    // </scrip>
+</head>
+<body class="container-fluid">
+    <h3>Payment Details</h3>
+    <dl>
+        <dt>Card Number</dt>
+        <dd class="input-group">
+            <input type="text" onkeyup="VerifyCard()" id="txtCard" class="form-control">
+            <img width="80" id="pic" height="40" class="input-group-text">
+        </dd>
+        <dt>Your Skype Address</dt>
+        <dd>
+            <input type="text" id="txtSkype" onblur="VerifySkype()" class="form-control">
+        </dd>
+        <dd id="msg"></dd>
+    </dl>
+</body>
+</html>
+-->

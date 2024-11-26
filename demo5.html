@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Number Type</title>
+    <script>
+      // function SubmitClick(){
+      //     var age=parseFloat(document.getElementById("txtAge").value);
+      //     if(isNaN(age)){
+      //         document.write("Age must be a number");
+      //     }else {
+      //         document.write("You will be "+(age+1) +" Next Year");
+      //     }
+      // }
+
+      // var username="Sunil";
+      // var age=20;
+      // var msg1="Hello!"+" "+username+" "+"You will be"+" "+(age);
+      // var msg2=`Hello! ${username} You will be ${age+1} Next Year`;
+      // document.write(msg1 + "<br>");
+      // document.write(msg2);
+
+      var title = "Admin Login";
+      var login = `
+    <h2>${title}</h2>
+    <dl>
+        <dt>Username</dt>
+        <dd><input type="text" /></dd>
+        <dt>Password</dt>
+        <dd><input type="password" /></dd>
+    </dl>
+    <button>${title}</button>
+`;
+      document.write(login);
+    </script>
+  </head>
+  <body>
+    Age : <input type="text" id="txtAge" /><button onclick="SubmitClick()">
+      Submit
+    </button>
+  </body>
+</html>

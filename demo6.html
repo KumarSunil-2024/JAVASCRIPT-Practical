@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <script>
+      function verifyUser() {
+        var username = document.getElementById("UserName").value;
+        document.getElementById("UserName").value = username.toUpperCase();
+        var userMsg = document.getElementById("userMsg");
+        if (username.length < 4) {
+          userMsg.innerHTML = "Name too Short".fontcolor("red").bold().italics();
+        } else {
+          userMsg.innerHTML = "Name Verified...";
+          //in modern using this
+        //   userMsg.style.color="green";
+        //   userMsg.style.fontStyle="italics";
+           userMsg.className="text-success";
+           username.className="valid-style";
+        }
+      }
+      function ChangeCase() {
+        var username = document.getElementById("UserName").value;
+        //document.getElementById("UserName").value = username.toUpperCase();
+      }
+    </script>
+  </head>
+  <body>
+    <dl>
+      <dt>User Name</dt>
+      <dd>
+        <input
+          placeholder="Name Block Letters only"
+          type="text"
+          onblur="ChangeCase()"
+          onkeyup="verifyUser()"
+          id="UserName"
+        />
+      </dd>
+      <dd id="userMsg"></dd>
+    </dl>
+  </body>
+</html>
+
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <script>
+        function verifyEmail(){
+            var email=document.getElementById("txtEmail").value;
+            var msg=document.getElementById("msg");
+            if(email.indexOf("@")==-1){
+                msg.innerHTML="Please includ @ in email";
+            }else{
+                msg.innerHTML="Email Verified...";
+            }
+        }
+    </script>
+</head>
+<body>
+    Email :
+    <input type="text" id="txtEmail">
+    <button onclick="verifyEmail()">Submit</button>
+    <div id="msg"></div>
+</body>
+</html>
+-->
