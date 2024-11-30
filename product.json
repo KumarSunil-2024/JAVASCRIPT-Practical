@@ -1,18 +1,12 @@
-[
-    {
-      "Name": "Nike Casuals",
-      "Price": 4500.54,
-      "Photo": "./public/assets/shoe.jpg"
-    },
-    {
-      "Name": "Winter Jacket",
-      "Price": 5000.54,
-      "Photo": "./public/assets/jacket.jpg"
-    },
-    {
-      "Name": "Lee Boot",
-      "Price": 3000.54,
-      "Photo": "./public/assets/shoell.jpg"
-    }
-  ]
-  
+{
+  "title": "APPLE iPhone 14 (Blue, 128 GB)",
+  "price": 60999,
+  "rating": {"rate":4.6, "count":245103, "reviews":9415},
+  "offers": [
+      "Bank Offer10% off on HDFC Bank Credit Card EMI Transactions, up to ₹750 on orders of ₹7,500 and aboveT&C",
+      "Bank OfferExtra ₹500 off on HDFC Bank Credit Card EMI on 6 months and above tenure, Min. Product Value ₹24,990T&C",
+      "Bank OfferExtra ₹750 off on HDFC Bank Credit Card EMI on 9 months and above tenure, Min. Product Value ₹50,000T&C",
+      "Special PriceGet extra ₹8901 off (price inclusive of cashback/coupon)T&C"
+  ],
+  "image": "../img6.jpg"
+}

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fakestore Products</title>
+    <!-- Bootstrap Icons (CDN) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Bootstrap CSS (CDN) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript">
+        function LoadProduct(id){
+            fetch(`https://fakestoreapi.com/products/${id}`)
+            .then(function(response){
+                return response.json();
+            })
+            .then(function(product){
+                document.getElementById("lblTitle").innerHTML = product.title;
+                document.getElementById("imgProduct").src = product.image;
+                document.getElementById("price").innerHTML = "$" + product.price;
+            })
+        }
+
+        function LoadAuto(){
+            productId++;
+            LoadProduct(productId);
+        }
+
+        function bodyload(){
+            LoadProduct(1);
+        }
+        var productId = 1;
+        function NextClick(){
+            productId++;
+            LoadProduct(productId);
+        }
+        function PrevClick(){
+            productId--;
+            LoadProduct(productId);
+        }
+        var timer;
+        function PlayClick(){
+            timer =  setInterval(LoadAuto, 3000);
+            document.getElementById("lblShow").innerHTML = "(Slide Show - Running)";
+        }
+        function PauseClick(){
+            clearInterval(timer);
+            document.getElementById("lblShow").innerHTML = "(Slide Show - Paused)";
+        }
+    </script>
+    <style>
+        #price {
+            width: 100px;
+            height: 60px;
+            border-radius: 80px;
+            background-color: #28a745; /* Changed from red to green */
+            color: white;
+            font-weight: bold;
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            text-align: center;
+            padding: 20px;
+        }
+        img {
+            object-fit: cover;
+            height: 350px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="container-fluid d-flex justify-content-center" onload="bodyload()">
+    <div  class="card p-2 mt-3" style="width: 70%;">
+        <div class="card-header text-center">
+            <p id="lblTitle"></p>
+            <div id="lblShow"></div>
+        </div>
+        <div class="card-body text-center">
+            <div class="row">
+                <div class="col-2 d-flex flex-direction-column justify-content-center align-items-center">
+                    <button onclick="PrevClick()" class=" btn btn-danger bi bi-chevron-left"></button>
+                </div>
+                <div class="col-8 position-relative">
+                    <div id="price"></div>
+                    <img id="imgProduct">
+                </div>
+                <div class="col-2 d-flex flex-direction-column justify-content-center align-items-center">
+                    <button onclick="NextClick()" class=" btn btn-danger bi bi-chevron-right"></button>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer text-center">
+            <button onclick="PlayClick()" class="btn btn-primary bi bi-play"></button>
+            <button onclick="PauseClick()" class="btn btn-warning bi bi-pause"></button>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function AddClick(){
+            var folder = document.getElementById("txtName").value;
+            document.querySelector("p").innerHTML += folder + "<br>";
+            document.getElementById("txtName").value = "";
+        }
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>Add Folder</legend>
+        <input type="text" id="txtName"> <button onclick="AddClick()">Add</button>
+    </fieldset>
+    <p></p>
+</body>
+</html>
+
+
+Ex:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+       
+        function SubmitClick(){
+            var fee = 0;
+           
+            var courses = document.getElementsByName("course");
+            for(var course of courses)
+            {
+                 if(course.checked) {
+                    fee += parseInt(course.value);
+                 }
+            }
+            document.querySelector("p").innerHTML = fee;
+        }
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend> Select Courses </legend>
+        <ul style="list-style: none;">
+            <li>
+                <input type="checkbox" name="course" value="3000"> Java
+            </li>
+            <li>
+                <input type="checkbox" name="course" value="5000"> .NET
+            </li>
+            <li>
+                <input type="checkbox" name="course" value="10000"> UI React
+            </li>
+            <button onclick="SubmitClick()">Submit</button>
+        </ul>
+    </fieldset>
+    <p></p>
+</body>
+</html>
+-->

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Bootstrap CSS (CDN) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons (CDN) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <script type="text/javascript">
+        function GetData(){
+            fetch("../product.json")
+            .then(function(response){
+                return response.json();
+            })
+            .then(function(data){
+                document.getElementById("imgProduct").src = data.image;
+                document.getElementById("productTitle").innerHTML = data.title;
+                document.getElementById("productRating").innerHTML = `<span class="badge bg-success text-white p-2 rounded rounded-2"> ${data.rating.rate} <span class="bi bi-star-fill"></span> </span> <span class="fw-bold text-secondary"> ${data.rating.count} & ${data.rating.reviews} </span>`;
+                document.getElementById("productPrice").innerHTML = data.price.toLocaleString("en-in",{style:"currency", currency:"INR"});
+
+                data.offers.map(function(offer){
+                    var li = document.createElement("li");
+                    li.className = "bi bi-tag-fill mb-4 text-success";
+                    li.innerHTML = `<span class="text-dark"> ${offer} </span>`;
+
+                    document.getElementById("productOffers").appendChild(li);
+                })
+            })
+        }
+    </script>
+</head>
+<body class="container-fluid" onload="GetData()">
+    <div class="mt-4 row">
+        <div class="col-4">
+            <img id="imgProduct" width="100%">
+        </div>
+        <div class="col-8">
+            <div id="productTitle" class="h4 text-primary"></div>
+            <div id="productRating" class="mt-3"></div>
+            <div id="productPrice" class="h2 mt-2"></div>
+            <div>
+                <ul class="list-unstyled" id="productOffers">
+                   
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="module">
+        import { OracleClient } from "../library/OracleModule.js";
+
+        let ora = new OracleClient();
+
+        document.getElementById("btnInsert").addEventListener("click", function(){
+            document.querySelector("p").innerHTML = ora.Insert();
+        })
+
+        document.getElementById("btnDelete").addEventListener("click", function(){
+            document.querySelector("p").innerHTML = ora.Delete();
+        })
+       
+    </script>
+</head>
+<body>
+    <button id="btnInsert">Insert</button>
+    <button id="btnDelete">Delete</button>
+    <p></p>
+</body>
+</html>
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        class Database
+        {
+            constructor(dbName){
+                document.write(`Connected to ${dbName} database<br>`);
+            }
+            Insert(){
+                return "Record Inserted<br>";
+            }
+            Update(){
+                return "Record Updated<br>";
+            }
+            Delete(){
+                return "Record Deleted<br>";
+            }
+        }
+        function InsertClick(){
+            let obj = new Database(document.querySelector("select").value);
+            document.write(obj.Insert());
+            document.write(obj.Insert());
+        }
+        function UpdateClick(){
+            let obj = new Database(document.querySelector("select").value);
+            document.write(obj.Update());
+        }
+        function DeleteClick(){
+            let obj = new Database(document.querySelector("select").value);
+            document.write(obj.Delete());
+        }
+    </script>
+</head>
+<body>
+    <select>
+        <option>Select Database</option>
+        <option>MySql</option>
+        <option>MongoDB</option>
+        <option>Oracle</option>
+    </select>
+    <button onclick="InsertClick()">Insert</button>
+    <button onclick="UpdateClick()" >Update</button>
+    <button onclick="DeleteClick()">Delete</button>
+    <p></p>
+</body>
+</html>
+-->

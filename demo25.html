@@ -1,0 +1,190 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays</title>
+    <!-- Bootstrap CSS (CDN) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons (CDN) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <script type="text/javascript">
+        var cities = ["Delhi", "Hyd"];
+        function LoadCities(){
+            document.getElementById("lstCities").innerHTML = "";
+            cities.map(function(city){
+                var option = document.createElement("option");
+                option.text = city;
+                option.value = city;
+                document.getElementById("lstCities").appendChild(option);
+            })
+            document.getElementById("lblCount").innerHTML = `Total Number of Cities : ${cities.length}`;
+        }
+
+        function AddClick(){
+            var cityName = document.getElementById("txtCity").value;
+            if(cities.indexOf(cityName)==-1) {
+                cities.push(cityName);
+                alert(`${cityName}\nAdded to List`);
+                LoadCities();
+                document.getElementById("txtCity").value = "";
+            } else {
+                alert(`${cityName} Exists`);
+            }
+        }
+        function SortAsc(){
+            cities.sort();
+            LoadCities();
+        }
+        function SortDsc(){
+            cities.sort();
+            cities.reverse();
+            LoadCities();
+        }
+        function RemoveClick(){
+             var selectedCity = document.getElementById("lstCities").value;
+             var selectedIndex = cities.indexOf(selectedCity);
+             var flag = confirm(`Are you sure?\nWant to Delete ${selectedCity}`);
+             if(flag==true)
+             {
+                cities.splice(selectedIndex,1);
+                LoadCities();
+             }
+        }
+        function ClearClick(){
+            cities.length = 0;
+            LoadCities();
+        }
+        function EditClick(){
+            document.getElementById("txtEditName").value = document.getElementById("lstCities").value;
+        }
+        function SaveClick(){
+            var newName = document.getElementById("txtEditName").value;
+            var selectedCity = document.getElementById("lstCities").value;
+            var selectedIndex = cities.indexOf(selectedCity);
+            cities[selectedIndex] = newName;
+            LoadCities();
+        }
+    </script>
+</head>
+<body class="container-fluid" onload="LoadCities()">
+    <h2>Array Manipulation</h2>
+    <div class="w-50">
+        <div class="input-group">
+            <input type="text" id="txtCity" class="form-control" placeholder="Add New City">
+            <button onclick="AddClick()" class="btn btn-primary">Add</button>
+        </div>
+        <div class="mt-4">
+            <div class="mb-2 mt-2">
+                <button onclick="SortAsc()" class="bi bi-sort-alpha-down btn btn-success me-2"></button>
+                <button onclick="SortDsc()" class="bi bi-sort-alpha-up btn btn-success me-2"></button>
+            </div>
+            <select class="form-select" id="lstCities">
+
+            </select>
+            <label class="form-label fw-bold mt-2" id="lblCount"></label>
+            <div class="mt-2 mb-2">
+                <button onclick="RemoveClick()" class="bi bi-trash btn btn-danger me-2"> Remove City</button>
+                <button onclick="ClearClick()" class="bi bi-trash-fill btn btn-outline-danger"> Clear All</button>
+                <button onclick="EditClick()" data-bs-target="#Edit" data-bs-toggle="modal" class="bi bi-pen-fill btn btn-warning ms-2"> Edit </button>
+                <div class="modal fade" id="Edit">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3>Edit City</h3>
+                                <button class="btn btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
+                                <input type="text" class="form-control" id="txtEditName">
+                            </div>
+                            <div class="modal-footer">
+                                <button onclick="SaveClick()" data-bs-dismiss="modal" class="btn btn-success bi bi-floppy"> Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var categories = ["All", "Electronics", "Footwear", "Fashion"];
+
+        function LoadClick(){
+
+            document.querySelector("ol").innerHTML = "";
+            document.querySelector("select").innerHTML = "";
+
+            categories.map(function(category){
+
+                var li = document.createElement("li");
+                li.innerHTML = category;
+
+                document.querySelector("ol").appendChild(li);
+
+                var option = document.createElement("option");
+                option.text = category;
+                option.value = category;
+
+                document.querySelector("select").appendChild(option);
+
+                var link = document.createElement("a");
+                link.href="#";
+                link.innerHTML = category;
+                link.style.marginRight = "50px";
+
+                document.querySelector("nav").appendChild(link);
+
+                var ulLi = document.createElement("li");
+                var input = document.createElement("input");
+                input.type = "checkbox";
+                var label = document.createElement("label");
+                label.innerHTML = category;
+
+                ulLi.appendChild(input);
+                ulLi.appendChild(label);
+
+                document.querySelector("ul").appendChild(ulLi);
+
+            })
+
+        }
+    </script>
+</head>
+<body>
+    <button onclick="LoadClick()">Load</button>
+    <br><br>
+    <ol>
+
+    </ol>
+    <br> <br>
+    <select>
+
+    </select>
+    <br><br>
+    <nav>
+
+    </nav>
+    <br><br>
+    <h3>Select Categories</h3>
+    <ul style="list-style: none;">
+
+    </ul>
+</body>
+</html>
+
+-->
