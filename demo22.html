@@ -1,0 +1,232 @@
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forward Jump</title>
+    <script type="text/javascript">
+        function PayClick(){
+            var card = document.getElementById("Card").value;
+            var cvv = document.getElementById("Cvv").value;
+            var expiry = document.getElementById("Expiry").value;
+            var msg = document.querySelector("p");
+
+            if(card==="4444555566667894"){
+                if(cvv==="456")
+                {
+                    if(expiry==="2024"){
+                        document.write("<h2>Payment Success..</h2>");
+                    }else {
+                        msg.innerHTML="Invalid Expiry".fontcolor('red');
+                    }
+                }
+                else {
+                    msg.innerHTML = "Invalid Cvv".fontcolor('red');
+                }
+            }
+            else {
+                msg.innerHTML = "Invalid Card".fontcolor('red');
+            }
+        }
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>Payment Details</legend>
+        <dl>
+            <dt>Card Number</dt>
+            <dd><input type="text" id="Card"></dd>
+            <div id="CvvContainer">
+                <dt>CVV</dt>
+                <dd><input type="text" id="Cvv"   size="4"></dd>
+            </div>
+            <div id="ExpiryContainer">
+                <dt>Expiry</dt>
+                <dd>
+                    <select id="Expiry">
+                        <option>Select Expiry</option>
+                        <option>2023</option>
+                        <option>2024</option>
+                        <option>2025</option>
+                    </select>
+                </dd>
+            </div>
+        </dl>
+        <button id="btnPay" onclick="PayClick()">Pay</button>
+    </fieldset>
+    <p align="center"></p>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forward Jump</title>
+    <script type="text/javascript">
+        function VerifyCard(){
+            var card = document.getElementById("Card").value;
+            if(card==="4444555566667894") {
+                document.getElementById("CvvContainer").style.display = "block";
+            } else {
+                alert("Invalid Card");
+            }
+        }
+        function VerifyCvv(){
+            var cvv = document.getElementById("Cvv").value;
+            if(cvv==="456") {
+                document.getElementById("ExpiryContainer").style.display = "block";
+            } else {
+                alert("Invalid Cvv");
+            }
+        }
+        function VerifyExpiry(){
+            var expiry = document.getElementById("Expiry").value;
+            if(expiry==="2024") {
+                document.getElementById("btnPay").style.display = "block";
+            } else {
+                alert("Invalid Expiry");
+            }
+        }
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>Payment Details</legend>
+        <dl>
+            <dt>Card Number</dt>
+            <dd><input type="text" id="Card" onblur="VerifyCard()"></dd>
+            <div id="CvvContainer" style="display: none;">
+                <dt>CVV</dt>
+                <dd><input type="text" id="Cvv" onblur="VerifyCvv()"  size="4"></dd>
+            </div>
+            <div id="ExpiryContainer" style="display: none;">
+                <dt>Expiry</dt>
+                <dd>
+                    <select id="Expiry" onchange="VerifyExpiry()" >
+                        <option>Select Expiry</option>
+                        <option>2023</option>
+                        <option>2024</option>
+                        <option>2025</option>
+                    </select>
+                </dd>
+            </div>
+        </dl>
+        <button id="btnPay" style="display: none;" >Pay</button>
+    </fieldset>
+</body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forward Jump</title>
+    <script type="text/javascript">
+        function VerifyCard(){
+            var card = document.getElementById("Card").value;
+            if(card==="4444555566667894") {
+                document.getElementById("CvvContainer").style.display = "block";
+            }
+        }
+        function VerifyCvv(){
+            var cvv = document.getElementById("Cvv").value;
+            if(cvv==="456") {
+                document.getElementById("ExpiryContainer").style.display = "block";
+            }
+        }
+        function VerifyExpiry(){
+            var expiry = document.getElementById("Expiry").value;
+            if(expiry==="2024") {
+                document.getElementById("btnPay").style.display = "block";
+            }
+        }
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>Payment Details</legend>
+        <dl>
+            <dt>Card Number</dt>
+            <dd><input type="text" id="Card" onblur="VerifyCard()"></dd>
+            <div id="CvvContainer" style="display: none;">
+                <dt>CVV</dt>
+                <dd><input type="text" id="Cvv" onblur="VerifyCvv()"  size="4"></dd>
+            </div>
+            <div id="ExpiryContainer" style="display: none;">
+                <dt>Expiry</dt>
+                <dd>
+                    <select id="Expiry" onchange="VerifyExpiry()" >
+                        <option>Select Expiry</option>
+                        <option>2023</option>
+                        <option>2024</option>
+                        <option>2025</option>
+                    </select>
+                </dd>
+            </div>
+        </dl>
+        <button id="btnPay" style="display: none;" >Pay</button>
+    </fieldset>
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forward Jump</title>
+    <script type="text/javascript">
+        function VerifyCard(){
+            var card = document.getElementById("Card").value;
+            if(card==="4444555566667894") {
+                document.getElementById("Cvv").disabled = false;
+            }
+        }
+        function VerifyCvv(){
+            var cvv = document.getElementById("Cvv").value;
+            if(cvv==="456") {
+                document.getElementById("Expiry").disabled = false;
+            }
+        }
+        function VerifyExpiry(){
+            var expiry = document.getElementById("Expiry").value;
+            if(expiry==="2024") {
+                document.getElementById("btnPay").disabled = false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>Payment Details</legend>
+        <dl>
+            <dt>Card Number</dt>
+            <dd><input type="text" id="Card" onblur="VerifyCard()"></dd>
+            <dt>CVV</dt>
+            <dd><input type="text" id="Cvv" onblur="VerifyCvv()" disabled size="4"></dd>
+            <dt>Expiry</dt>
+            <dd>
+                <select id="Expiry" onchange="VerifyExpiry()" disabled>
+                    <option>Select Expiry</option>
+                    <option>2023</option>
+                    <option>2024</option>
+                    <option>2025</option>
+                </select>
+            </dd>
+        </dl>
+        <button id="btnPay" disabled>Pay</button>
+    </fieldset>
+</body>
+</html>
+-->
